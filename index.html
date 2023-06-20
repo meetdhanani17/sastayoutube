@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+      body {
+        margin: 40px auto;
+        max-width: 1120px;
+        line-height: 1.6;
+        font-size: 18px;
+        font-family: "Courier New", Courier, monospace;
+        color: #444;
+        padding: 0 10px;
+      }
+      h2 {
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input id="videoLink" type="text" placeholder="enter youtube video link" />
+    <button>Watch</button>
+    <select id="quality">
+      <option name="1080" value="1080">1080</option>
+      <option name="720" value="720">720</option>
+    </select>
+
+    <video id="videoPlayer" width="1080" controls autoplay>
+      <source type="video/mp4" />
+    </video>
+    <!-- <video id="videoPlayer" width="650" controls  autoplay>
+      <source src="/watch" type="video/mp4" />
+    </video> -->
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("button").click(function () {
+        const quality = $("#quality").val();
+        const value = $("#videoLink").val();
+        const Link = value.split("=")[1] || value.split(".be/")[1];
+        $("video").attr("src", "video/" + quality + "/" + Link);
+      });
+
+      $("video").on("seeking", function () {
+        console.log("User started seeking");
+      });
+
+      $("video").on("seeked", function () {
+        console.log("User finished seeking");
+
+        var currentTime = this.currentTime;
+        console.log("Seeked to:", currentTime);
+      });
+    });
+  </script>
+</html>

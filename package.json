@@ -1,0 +1,16 @@
+{
+  "name": "node-starter",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -x 'node index.js || touch index.js'"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "child_process": "^1.0.2",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^5.1.0",
+    "nodemon": "^2.0.22",
+    "ytdl-core": "^4.11.4"
+  }
+}
