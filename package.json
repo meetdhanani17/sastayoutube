@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon -x 'node index.js || touch index.js'",
-    "build": "npm install && gulp build"
+    "build": "npm install && gulp build",
+    "serve": "nodemon -x 'node dist/bundle.min.js || touch dist/bundle.min.js'"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
