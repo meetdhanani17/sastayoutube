@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon -x 'node index.js || touch index.js'",
-    "build": "gulp build"
+    "build": "npm install && gulp build"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
