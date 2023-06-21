@@ -34,7 +34,7 @@ app.get("/video/1080/:id", async (req, res) => {
   // res.writeHead(206, headers);
   res.header("Content-Disposition", `attachment;  filename=.mp4`);
   let video = ytdl(videoURL, { filter: "videoonly" });
-  let audio = ytdl(videoURL, { filter: "audioonly", highWaterMark: 1 << 25 });
+  let audio = ytdl(videoURL, { filter: "audioonly", highWaterMark: 1024*1024 });
 
   const ffmpegProcess = cp.spawn(
     ffmpeg,
